@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Model Deployment Demo</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Iris Species Predictor</h1>
+        <p class="subtitle">Demo model served via Flask, deployed on Render.</p>
+
+        {% if error %}
+        <div class="alert error">{{ error }}</div>
+        {% endif %}
+
+        {% if prediction %}
+        <div class="alert success">
+            <strong>Prediction:</strong> {{ prediction.class }}
+            <br>
+            <strong>Confidence:</strong> {{ prediction.confidence }}%
+        </div>
+        {% endif %}
+
+        <form method="POST">
+            {% for name in feature_names %}
+            <div class="form-group">
+                <label for="{{ name }}">{{ name }}</label>
+                <input type="number" step="0.1" name="{{ name }}" id="{{ name }}" required>
+            </div>
+            {% endfor %}
+            <button type="submit">Predict</button>
+        </form>
+
+        <div class="api-note">
+            <strong>API access:</strong> POST JSON to <code>/predict</code>
+            <pre>{"features": [5.1, 3.5, 1.4, 0.2]}</pre>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+About Retrieval-Augmented Generation (RAG)
+
+RAG is a technique that combines information retrieval with text generation.
+Instead of relying purely on what a language model memorized during training,
+a RAG system first searches a knowledge base for relevant information, then
+gives that information to the language model as context before it generates
+an answer.
+
+Why RAG matters:
+1. Reduces hallucination — the model answers from retrieved facts instead of guessing.
+2. Keeps answers current — you can update the knowledge base without retraining the model.
+3. Enables domain-specific chatbots — a company can build a chatbot that knows
+   its own internal documents, policies, or product manuals.
+
+How this project's pipeline works:
+1. Documents are split into overlapping chunks so no single chunk is too long
+   for the embedding model, and important context isn't lost at chunk boundaries.
+2. Each chunk is converted into a vector embedding using a sentence-transformer
+   model (all-MiniLM-L6-v2), which runs locally and is free to use.
+3. Embeddings are stored in a FAISS index, which allows very fast similarity search
+   even across large document collections.
+4. When a user asks a question, the question itself is embedded and compared
+   against all stored chunk embeddings to find the most semantically similar ones.
+5. The top few matching chunks are inserted into a prompt along with the user's
+   question, and sent to a large language model (Claude or GPT) to generate
+   a final, grounded answer.
+
+Limitations to be aware of:
+- Retrieval quality depends heavily on chunk size and overlap — too small loses
+  context, too large dilutes relevance.
+- The system can only answer questions covered by the documents it has ingested.
+- Embedding models can miss purely keyword-based matches that don't carry
+  semantic similarity (e.g. exact product codes or IDs) — hybrid search
+  (combining keyword + vector search) can help in production systems.

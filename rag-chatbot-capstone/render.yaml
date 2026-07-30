@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: rag-chatbot
+    runtime: docker
+    plan: starter   # free tier often runs out of memory for embedding models — starter (512MB-1GB) is safer
+    healthCheckPath: /health
+    envVars:
+      - key: LLM_PROVIDER
+        value: anthropic         # or "openai"
+      - key: ANTHROPIC_API_KEY
+        sync: false               # set manually in Render dashboard (secret)
+      - key: OPENAI_API_KEY
+        sync: false               # set manually in Render dashboard (secret), only needed if LLM_PROVIDER=openai
+    autoDeploy: true
