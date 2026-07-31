@@ -70,8 +70,9 @@ Render gives you a public URL like `https://ml-deployment-demo.onrender.com`. Vi
 2. `app.py`, the HTML template, and the Dockerfile need **no changes** — they read feature/class names dynamically from `model_meta.pkl`.
 3. If your model has many features (like the Adult Income dataset's 12 columns) the auto-generated form will just have more fields — still works, just less pretty. For a nicer UX at that point, consider grouping fields or defaulting less-important ones.
 
-## Notes on the free tier
-Render's free web services **spin down after 15 minutes of inactivity** and take ~30-60 seconds to wake back up on the next request — normal and expected, not a bug. Worth mentioning in your submission/demo so graders aren't confused by the first request being slow.
+## Deployment link
+ https://student-placement-predictor-bha6.onrender.com
+
 
 ## What to highlight in your report
 - Separation of concerns: training (`train_model.py`) is decoupled from serving (`app.py`) — you retrain offline and ship only the lightweight artifacts.
