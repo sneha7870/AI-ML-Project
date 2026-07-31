@@ -11,7 +11,7 @@ Consolidated repository for all submitted assignments. Each folder is a self-con
 | 5 | CartPole RL Agent Training | Reinforcement Learning (PPO) | [`cartpole-rl/`](./cartpole-rl) |
 | 6 | Lunar Lander RL Agent Training | Reinforcement Learning (PPO) | [`lunar-lander-rl/`](./lunar-lander-rl) |
 | 7 | Movie Recommendation System | Collaborative + Content-Based Filtering | [`movie-recommendation-system/`](./movie-recommendation-system) |
-| 8 | End-to-End Render Deployment Project (Student Placement Predictor using flask and docker)| Full-Stack ML Deployment (Flask, Docker, Render) | [`render-deployment-project/`](./render-deployment-project) /(./https://student-placement-predictor-bha6.onrender.com). |
+| 8 | End-to-End Render Deployment Project (Student Placement Predictor using flask and docker)| Full-Stack ML Deployment (Flask, Docker, Render) | [`render-deployment-project/`](./render-deployment-project) / https://student-placement-predictor-bha6.onrender.com |
 | 9 | RAG Chatbot (Capstone Project) | Retrieval-Augmented Generation Chatbot | [`rag-chatbot-capstone/`](./rag-chatbot-capstone) |
 
 ## How to run any project
