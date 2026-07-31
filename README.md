@@ -1,4 +1,13 @@
 # ML / AI Assignment Portfolio
+Author:- Sneha Bharty
+
+Registration Number: 23MIP10033
+
+Application Number: IN26011604
+
+Batch Number: 1A
+
+Email ID: sneha.23mip10033@vitbhopal.ac.in
 
 Consolidated repository for all submitted assignments. Each folder is a self-contained project with its own `README.md` (setup, dataset, and run instructions) and source code.
 
